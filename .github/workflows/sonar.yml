@@ -30,14 +30,14 @@ jobs:
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
       with:
-        projectBaseDir: app/src
-        args: >
+        projectBaseDir: .
+        args:
           -Dsonar.organization=lavazza
           -Dsonar.projectKey=lavazza_ft-test
-          #-Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.sources=src/
-          -Dsonar.tests=tests/
-          #-Dsonar.test.exclusions=tests/**
+          -Dsonar.tests=tests/  
           -Dsonar.verbose=true
+          # -Dsonar.python.coverage.reportPaths=coverage.xml
+          # -Dsonar.test.exclusions=tests/**
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
