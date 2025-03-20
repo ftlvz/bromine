@@ -37,7 +37,7 @@ jobs:
           -Dsonar.sources=src/
           -Dsonar.tests=tests/  
           -Dsonar.verbose=true
-          # -Dsonar.python.coverage.reportPaths=coverage.xml
+          -Dsonar.python.coverage.reportPaths=coverage.xml
           # -Dsonar.test.exclusions=tests/**
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
