@@ -40,9 +40,6 @@ jobs:
        tox -e py38 --installpkg dist/bromine-*.whl --workdir ./toxwd
        coverage combine .coverage_*
        coverage xml
-    - run: ls -la
-    - run: pwd
-    - run: find .
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
       with:
