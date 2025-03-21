@@ -34,7 +34,7 @@ jobs:
     - run: |
        pip install -U --no-cache-dir -r requirements/build.txt
        make clean
-       sh 'sed -i "s/_BUILD/.dev0/g" src/bromine/_version.py'
+       sed -i "s/_BUILD/.dev0/g" src/bromine/_version.py
        python3 setup.py bdist_wheel --universal
        pip install --no-cache-dir -r requirements/qa.txt
        tox -e py38 --installpkg dist/bromine-*.whl --workdir ./toxwd
