@@ -38,7 +38,7 @@ jobs:
        pip install --no-cache-dir -r requirements/qa.txt
        tox -e py38 --installpkg dist/bromine-*.whl --workdir ./toxwd
        coverage combine .coverage_*
-	     coverage report -m --skip-covered
+       coverage report -m --skip-covered
     - run: echo "Build and test done"
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
