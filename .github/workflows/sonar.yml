@@ -27,6 +27,19 @@ jobs:
       with:
         # Disabling shallow clones is recommended for improving the relevancy of reporting
         fetch-depth: 0
+    - name: Setup python 3.8
+      uses: actions/setup-python@v5.4.0
+      with:
+        python-version: 3.8
+    - run: |
+       pip install -U --no-cache-dir -r requirements/build.txt
+       make clean
+       python3 setup.py bdist_wheel --universal
+       pip install --no-cache-dir -r requirements/qa.txt
+       tox -e py38 --installpkg dist/bromine-*.whl --workdir ./toxwd
+       coverage combine .coverage_*
+	     coverage report -m --skip-covered
+    - run: echo "Build and test done"
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
       with:
