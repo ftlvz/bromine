@@ -39,11 +39,8 @@ jobs:
        pip install --no-cache-dir -r requirements/qa.txt
        tox -e py38 --installpkg dist/bromine-*.whl --workdir ./toxwd
        coverage combine .coverage_*
-       coverage report -m --skip-covered
-    - run: ls -la .
-    # - run: cat .coverage
-    - run: cat .coveragerc
-    - run: find toxwd
+       coverage xml
+    - run: find .
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
       with:
@@ -54,8 +51,6 @@ jobs:
           -Dsonar.sources=src/
           -Dsonar.tests=tests/  
           -Dsonar.verbose=true
-          -Dsonar.python.genericcoverage.reportPaths=coverage-reports/coverage-0.xml
-          -Dsonar.python.coverage.reportPaths=coverage-reports/coverage-0.xml
-          # -Dsonar.test.exclusions=tests/**
+          -Dsonar.python.coverage.reportPaths=coverage.xml
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
