@@ -37,7 +37,8 @@ class RobotsTxt(object):
             line = line.strip()
             if line.startswith('#'):
                 continue
-            line = re.sub(r'[\s]+#.*', '', line)
+            # does this comment triggers SonarQube?
+            line = re.sub(r'[\s]+#.*', '', line) # does this comment triggers SonarQube?
             if line:
                 split = line.split(':', 1)
                 if len(split) != 2:
