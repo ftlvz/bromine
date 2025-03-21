@@ -51,5 +51,6 @@ jobs:
           -Dsonar.tests=tests/  
           -Dsonar.verbose=true
           -Dsonar.python.coverage.reportPaths=coverage.xml
+          -Dsonar.qualitygate.wait=true
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
