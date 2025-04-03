@@ -33,3 +33,6 @@ class WebApplication(Application):
     @current_page.setter
     def current_page(self, page):
         self._current_page = page
+
+    def some_new_function_for_sonar_to_analyze(self):
+        return a + b
