@@ -53,7 +53,7 @@ jobs:
           -Dsonar.verbose=true
           -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.qualitygate.wait=true
-          -Dsonar.branch.name=branch-long-1
+          -Dsonar.branch.name=master
           -Dsonar.exclusions=src/bromine/webdriver/sonar_ignore_*
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
