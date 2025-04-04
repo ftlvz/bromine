@@ -27,7 +27,6 @@ class WebApplication(Application):
     @property
     def current_page(self):
         """Logical current page."""
-        # TODO: explain what 'logical' means and why we define a setter
         return self._current_page
 
     @current_page.setter
