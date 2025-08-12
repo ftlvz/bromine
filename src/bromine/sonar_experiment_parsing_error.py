@@ -6,6 +6,6 @@ Here we experiment with using NOSONAR to try and suppress the parsing error
 
 print("Hello")
 
-%run FooBar
+%run FooBar # NOSONAR
 
 print("World")
