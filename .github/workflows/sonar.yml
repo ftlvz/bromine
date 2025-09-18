@@ -48,6 +48,7 @@ jobs:
         args:
           -Dsonar.organization=lavazza
           -Dsonar.projectKey=lavazza_ft-test
+          -Dsonar.projectVersion=1.1.0
           -Dsonar.sources=src/
           -Dsonar.tests=tests/  
           -Dsonar.verbose=true
